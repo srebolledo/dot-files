@@ -1,0 +1,68 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+ Plugin 'gmarik/Vundle.vim'
+ Plugin 'kien/ctrlp.vim'
+ Plugin 'bling/vim-airline'
+ Plugin 'tpope/vim-fugitive'
+ Plugin 'pangloss/vim-javascript'
+
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+
+
+
+syntax on                         " show syntax highlighting
+colorscheme monokai
+filetype plugin indent on
+set autoindent                    " set auto indent
+set ts=2                          " set indent to 2 spaces
+set shiftwidth=2
+set expandtab                     " use spaces, not tab characters
+set nocompatible                  " don't need to be compatible with old vim
+set number                        " show relative line numbers
+set showmatch                     " show bracket matches
+set ignorecase                    " ignore case in search
+set hlsearch                      " highlight all search matches
+set cursorline                    " highlight current line
+set smartcase                     " pay attention to case when caps are used
+set incsearch                     " show search results as I type
+set ttimeoutlen=100               " decrease timeout for faster insert with 'O'
+set vb                            " enable visual bell (disable audio bell)
+set ruler                         " show row and column in footer
+set scrolloff=2                   " minimum lines above/below cursor
+set laststatus=2                  " always show status bar
+set list listchars=tab:»·,trail:· " show extra space characters
+set nofoldenable                  " disable code folding
+set clipboard=unnamed             " use the system clipboard
+set wildmenu                      " enable bash style tab completion
+set wildmode=list:longest,full
+
+" This are remaps for various things
+
+"Move tabs, using Ctrl + Left or Right
+nnoremap <A-Left> :tabprevious<CR>
+nnoremap <A-Right> :tabnext<CR>
+
