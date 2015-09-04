@@ -13,8 +13,7 @@ call vundle#begin()
  Plugin 'bling/vim-airline'
  Plugin 'tpope/vim-fugitive'
  Plugin 'pangloss/vim-javascript'
-
-
+ Plugin 'FelikZ/ctrlp-py-matcher'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -41,8 +40,7 @@ set autoindent                    " set auto indent
 set ts=2                          " set indent to 2 spaces
 set shiftwidth=2
 set expandtab                     " use spaces, not tab characters
-set nocompatible                  " don't need to be compatible with old vim
-set number                        " show relative line numbers
+set number                        " show absolute line numbers
 set showmatch                     " show bracket matches
 set ignorecase                    " ignore case in search
 set hlsearch                      " highlight all search matches
@@ -62,7 +60,18 @@ set wildmode=list:longest,full
 
 " This are remaps for various things
 
-"Move tabs, using Ctrl + Left or Right
-nnoremap <A-Left> :tabprevious<CR>
-nnoremap <A-Right> :tabnext<CR>
+"airline config
+let g:airline_powerline_fonts = 1
+:let g:airline_theme='molokai'
 
+"CtrlP configuration
+"Change and ignore some files so ctrlP is faster!
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
+"Change the ctrlP matcher this one is better than vim matcher
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
