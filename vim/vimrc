@@ -14,6 +14,9 @@ call vundle#begin()
  Plugin 'tpope/vim-fugitive'
  Plugin 'pangloss/vim-javascript'
  Plugin 'FelikZ/ctrlp-py-matcher'
+ Plugin 'scrooloose/syntastic'
+ Plugin 'tpope/vim-unimpaired'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -75,3 +78,21 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ -g ""'
 "Change the ctrlP matcher this one is better than vim matcher
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+
+" Setting backupdir outside the project
+set backupdir=~/.vim/backup/
+set directory=~/.vim/swap/
+set undodir=~/.vim/undo/
+
+
+"Syntastic configurations
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 2
+"let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['jshint']
