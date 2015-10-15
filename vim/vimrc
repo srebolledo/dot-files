@@ -9,14 +9,44 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
  Plugin 'gmarik/Vundle.vim'
+
+ "Search for files
  Plugin 'kien/ctrlp.vim'
+
+ "Tab line goodies
  Plugin 'bling/vim-airline'
+
+ "GIT support
  Plugin 'tpope/vim-fugitive'
+ 
  Plugin 'pangloss/vim-javascript'
+
  Plugin 'FelikZ/ctrlp-py-matcher'
+
+ "Show errors on lines
  Plugin 'scrooloose/syntastic'
+
  Plugin 'tpope/vim-unimpaired'
 
+ "Support for jade color scheme
+ Plugin 'digitaltoad/vim-jade.git'
+
+ "Nerdtree show a tree structure to navigate files
+  Plugin 'scrooloose/nerdtree'
+
+ "Silver bullet search
+ Plugin 'rking/ag.vim'
+
+ Plugin 'tomtom/tcomment_vim'
+
+ "Cmd+v support
+ Plugin 'ConradIrwin/vim-bracketed-paste'
+ 
+ "Show ident guides
+  Plugin 'nathanaelkane/vim-indent-guides'
+
+ "Vim plugin which shows a git diff in the gutter (sign column) and  stages/reverts hunks.
+ Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -30,7 +60,7 @@ filetype plugin indent on    " required
 " :PluginSearch(!) foo - search (or refresh cache first) for foo
 " :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
 "
-" see :h vundle for more details or wiki for FAQ
+" see :h vundle for more detals or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
 
@@ -60,12 +90,14 @@ set nofoldenable                  " disable code folding
 set clipboard=unnamed             " use the system clipboard
 set wildmenu                      " enable bash style tab completion
 set wildmode=list:longest,full
+set autoread                      " Reload the files open with vim and edited with others programs
+
 
 " This are remaps for various things
 
 "airline config
 let g:airline_powerline_fonts = 1
-:let g:airline_theme='molokai'
+let g:airline_theme='powerlineish'
 
 "CtrlP configuration
 "Change and ignore some files so ctrlP is faster!
@@ -96,3 +128,6 @@ let g:syntastic_auto_loc_list = 2
 "let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['jshint']
+
+"NERDTree
+map <C-w>t  :NERDTreeToggle<CR>
